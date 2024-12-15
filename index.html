@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Notepad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="password-screen" class="hidden">
+        <h1>Secure Notepad</h1>
+        <p>Enter your password to access the notes:</p>
+        <input type="password" id="password-input" placeholder="Enter Password">
+        <button id="password-submit">Enter</button>
+        <p id="password-error" class="error hidden">Incorrect Password!</p>
+    </div>
+
+    <div id="notepad" class="hidden">
+        <div class="header">
+            <h1>My Notepad</h1>
+            <button id="new-pad">New Pad</button>
+        </div>
+        <textarea id="note-content" placeholder="Write your notes here..."></textarea>
+        <div class="footer">
+            <button id="save-note">Save Note</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
