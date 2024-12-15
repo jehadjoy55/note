@@ -1,3 +1,9 @@
+// Initial Welcome Screen to Password Screen
+document.getElementById('start-button').addEventListener('click', () => {
+    document.getElementById('welcome-screen').classList.add('hidden');
+    document.getElementById('password-screen').classList.remove('hidden');
+});
+
 // Password Protection
 const correctPassword = "78907890";
 
