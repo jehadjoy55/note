@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Visible Welcome Screen -->
+    <div id="welcome-screen">
+        <h1>Welcome to Secure Notepad</h1>
+        <p>Your personal, password-protected note-taking app.</p>
+        <button id="start-button">Start</button>
+    </div>
+
+    <!-- Password Screen -->
     <div id="password-screen" class="hidden">
         <h1>Secure Notepad</h1>
         <p>Enter your password to access the notes:</p>
@@ -15,6 +23,7 @@
         <p id="password-error" class="error hidden">Incorrect Password!</p>
     </div>
 
+    <!-- Notepad Section -->
     <div id="notepad" class="hidden">
         <div class="header">
             <h1>My Notepad</h1>
