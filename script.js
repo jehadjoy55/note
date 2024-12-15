@@ -1,36 +1,48 @@
-// Initial Welcome Screen to Password Screen
-document.getElementById('start-button').addEventListener('click', () => {
-    document.getElementById('welcome-screen').classList.add('hidden');
-    document.getElementById('password-screen').classList.remove('hidden');
-});
+// Get all necessary elements
+const welcomeScreen = document.getElementById('welcome-screen');
+const passwordScreen = document.getElementById('password-screen');
+const notepadScreen = document.getElementById('notepad');
+const startButton = document.getElementById('start-button');
+const passwordInput = document.getElementById('password-input');
+const passwordSubmit = document.getElementById('password-submit');
+const passwordError = document.getElementById('password-error');
+const noteContent = document.getElementById('note-content');
+const saveNoteButton = document.getElementById('save-note');
+const newPadButton = document.getElementById('new-pad');
 
-// Password Protection
+// Correct password
 const correctPassword = "78907890";
 
-document.getElementById('password-submit').addEventListener('click', () => {
-    const passwordInput = document.getElementById('password-input').value;
-    if (passwordInput === correctPassword) {
-        document.getElementById('password-screen').classList.add('hidden');
-        document.getElementById('notepad').classList.remove('hidden');
+// Start Button - Move to Password Screen
+startButton.addEventListener('click', () => {
+    welcomeScreen.classList.add('hidden');
+    passwordScreen.classList.remove('hidden');
+});
+
+// Password Submit - Validate and Open Notepad
+passwordSubmit.addEventListener('click', () => {
+    if (passwordInput.value === correctPassword) {
+        passwordScreen.classList.add('hidden');
+        notepadScreen.classList.remove('hidden');
     } else {
-        document.getElementById('password-error').classList.remove('hidden');
+        passwordError.classList.remove('hidden');
     }
 });
 
 // Save Notes in LocalStorage
-document.getElementById('save-note').addEventListener('click', () => {
-    const noteContent = document.getElementById('note-content').value;
-    if (noteContent.trim() === "") {
+saveNoteButton.addEventListener('click', () => {
+    const noteContentValue = noteContent.value.trim();
+    if (!noteContentValue) {
         alert("Note is empty!");
         return;
     }
     const noteKey = `note_${new Date().getTime()}`;
-    localStorage.setItem(noteKey, noteContent);
+    localStorage.setItem(noteKey, noteContentValue);
     alert("Note saved successfully!");
 });
 
 // Open New Pad
-document.getElementById('new-pad').addEventListener('click', () => {
-    document.getElementById('note-content').value = '';
+newPadButton.addEventListener('click', () => {
+    noteContent.value = '';
     alert("New pad opened!");
 });
